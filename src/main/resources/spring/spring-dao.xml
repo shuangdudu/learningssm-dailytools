@@ -49,7 +49,7 @@
         <!--配置mybatis全局配置文件:mybatisConfig.xml-->
         <property name="configLocation" value="classpath:config/mybatisConfig.xml"/>
         <!--扫描entity包,使用别名,多个用;隔开-->
-        <property name="typeAliasesPackage" value="com.miaomiao.it.learning.entity"/>
+        <property name="typeAliasesPackage" value="com.shuangwhywhy.it.entity"/>
         <!--扫描sql配置文件:mapper需要的xml文件-->
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
     </bean>
@@ -63,7 +63,7 @@
         <!--注入SqlSessionFactory-->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 给出需要扫描的Dao接口-->
-        <property name="basePackage" value="com.miaomiao.it.learning.dao"/>
+        <property name="basePackage" value="com.shuangwhywhy.it.dao"/>
     </bean>
 
     <!-- 5:日志管理-->
