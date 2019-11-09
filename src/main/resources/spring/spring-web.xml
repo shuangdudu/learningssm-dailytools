@@ -32,5 +32,5 @@
     </bean>
 
     <!--4:扫描web相关的bean-->
-    <context:component-scan base-package="com.miaomiao.it.learning.*"/>
+    <context:component-scan base-package="com.shuangwhywhy.it.*"/>
 </beans>

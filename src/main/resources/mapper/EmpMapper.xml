@@ -7,17 +7,17 @@
 <!-- <select id="getMtypeList" resultType="java.util.HashMap"> -->
 <!-- select code,`name` from jk_control_measure -->
 <!-- </select> -->
-<mapper namespace="com.miaomiao.it.learning.dao.EmpDao">
-	<select id="findAllEmp" resultType="com.miaomiao.it.learning.entity.Emp">
+<mapper namespace="com.shuangwhywhy.it.dao.EmpDao">
+	<select id="findAllEmp" resultType="com.shuangwhywhy.it.entity.Emp">
 		SELECT * FROM emp
 	</select>
 	<!-- 当只传1个参数的时候不能 -->
-	<select id="findByDept1" parameterType="java.lang.Integer" resultType="com.miaomiao.it.learning.entity.Emp">
+	<select id="findByDept1" parameterType="java.lang.Integer" resultType="com.shuangwhywhy.it.entity.Emp">
 		select * from emp 
 		<if test='_parameter!=null and _parameter!=""'>where deptno = #{deptno}</if>	
 	</select>
 
-	<select id="findBySalary" parameterType="com.miaomiao.it.learning.entity.Emp" resultType="com.miaomiao.it.learning.entity.Emp">
+	<select id="findBySalary" parameterType="com.shuangwhywhy.it.entity.Emp" resultType="com.shuangwhywhy.it.entity.Emp">
 		select * from emp
 		<choose>
 			<when test="sal>3000">
@@ -30,7 +30,7 @@
 	</select>
 <!-- 	where元素主要是用于简化查询语句中where部分的条件判断。where元素可以在<where>元素所在位置输出1个where关键字，
 而且还可以将后面条件多余的and或or关键字去除 -->
-	<select id="findByDeptAndSalary" parameterType="com.miaomiao.it.learning.entity.Condition" resultType="com.miaomiao.it.learning.entity.Emp">
+	<select id="findByDeptAndSalary" parameterType="com.shuangwhywhy.it.entity.Condition" resultType="com.shuangwhywhy.it.entity.Emp">
 		select * from emp
 		<where>
 			<if test="deptno!=null">and deptno=#{deptno}</if>
@@ -40,7 +40,7 @@
 <!-- 	set元素主要用在更新操作的时候，他的主要功能和where元素相似，主要实在<set>元素所在位置输出1个set关键字，而且还可以去除
 		内容结尾中无关的逗号。有了set元素我们就可以动态的更新那些修改了的字段
  -->
-	<update id="updateByDeptno" parameterType="com.miaomiao.it.learning.entity.Emp">
+	<update id="updateByDeptno" parameterType="com.shuangwhywhy.it.entity.Emp">
 		update temp_emp
 		<set>
 		<if test="job!=null">job=#{job},</if>
@@ -52,7 +52,7 @@
 	可以把包含内容的首部某些内容过滤，即忽略，也可以把尾部的某些内容过滤，对应的属性是prefixOverrides和suffixOverrides;
 	
  -->
- 	<select id="findByDeptnoAndEname" parameterType="com.miaomiao.it.learning.entity.Condition" resultType="com.miaomiao.it.learning.entity.Emp">
+ 	<select id="findByDeptnoAndEname" parameterType="com.shuangwhywhy.it.entity.Condition" resultType="com.shuangwhywhy.it.entity.Emp">
  		select * from emp
  		<trim prefix="where" prefixOverrides="and">
  			<if test="deptno!=null">and deptno=#{deptno}</if>
@@ -79,7 +79,7 @@ collection属性是在使用foreach的时候最关键的也是最容易出错的
 （1）如果传入的是单参数且参数类型是一个List的时候，collection属性值为list .
 （2）如果传入的是单参数且参数类型是一个array数组的时候，collection的属性值为array .
 （3）如果传入的参数是多个的时候，我们就需要把它们封装成一个Map了，当然单参数也可以封装成map，实际上如果你在传入参数的时候，在MyBatis里面也是会把它封装成一个Map的，map的key就是参数名，所以这个时候collection属性值就是传入的List或array对象在自己封装的map里面的key. -->
- 	<select id="findByIds" parameterType="java.util.List" resultType="com.miaomiao.it.learning.entity.Emp">
+ 	<select id="findByIds" parameterType="java.util.List" resultType="com.shuangwhywhy.it.entity.Emp">
  		select * from emp where empno in
  		<foreach collection="list" open="(" close=")" separator="," item="id">
  			#{id}

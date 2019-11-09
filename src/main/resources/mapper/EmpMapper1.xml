@@ -7,11 +7,11 @@
 <!-- <select id="getMtypeList" resultType="java.util.HashMap"> -->
 <!-- select code,`name` from jk_control_measure -->
 <!-- </select> -->
-<mapper namespace="com.miaomiao.it.learning.dao.EmpDao1">
-	<select id="findAll" resultType="com.miaomiao.it.learning.entity.Emp">
+<mapper namespace="com.shuangwhywhy.it.dao.EmpDao1">
+	<select id="findAll" resultType="com.shuangwhywhy.it.entity.Emp">
 		SELECT * FROM emp
 	</select>
-	<select id="findByDept" parameterType="com.miaomiao.it.learning.entity.Condition" resultType="com.miaomiao.it.learning.entity.Emp">
+	<select id="findByDept" parameterType="com.shuangwhywhy.it.entity.Condition" resultType="com.shuangwhywhy.it.entity.Emp">
 		select * from emp 
 		<if test="deptno != null">
 			where deptno=#{deptno}
